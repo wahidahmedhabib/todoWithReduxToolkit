@@ -5,32 +5,26 @@ import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { addTodo, deleteTodo, updateTodo } from './App/todoSlice'
 import ListTodo from "./Component/ListTodo/ListTodo";
-
+import { AddTodo } from "./Component/AddTodo/AddTodo";
 function App() {
-  const [input, setInput] = useState('')
-
-
   const allTodos = useSelector(state => state.todos.todos)
 
-  console.log(allTodos)
-
-  const dispatch = useDispatch()
-  // console.log(allTodos)
-
-  const addData = () => {
-    console.log(input)
-    dispatch(addTodo(input))
-  }
-
-
+  // const dispatch = useDispatch()
   return (
 
     <>
-      <div>
-        <input type="text" onChange={e => setInput(e.target.value)} />
-        <button onClick={() => dispatch(addTodo(input))} >addd</button>
+
+
+      <div className="h-10 max-w-2xl  text-center border  sm:bg-red-600  mx-auto ">
+        <div className="font-bold text-[25px] text-white">Todo App</div>
       </div>
-      <div>
+      <div className="max-w-2xl flex items-center justify-center border mx-auto  ">
+
+        <AddTodo />
+      </div>
+      <div
+        className=" w-full max-w-2xl flex  flex-col  border mx-auto p-3 "
+      >
         {
           allTodos.map((todo) => {
             return (

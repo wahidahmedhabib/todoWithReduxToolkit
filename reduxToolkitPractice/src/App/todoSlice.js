@@ -11,14 +11,11 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, actions) => {
-      // console.log(actions);
-      // console.log(state.todos);
       let todo = {
         id: nanoid(),
         text: actions.payload,
       };
       state.todos.push(todo);
-      // console.log(state.todos)
     },
     deleteTodo: (state, actions) => {
       state.todos = state.todos.filter(
